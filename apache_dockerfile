@@ -1,0 +1,2 @@
+FROM httpd
+COPY $PWD/src/apache/conf/my-httpd.conf /usr/local/apache2/conf/httpd.conf

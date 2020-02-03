@@ -1,0 +1,25 @@
+docker build -t php-app -f php_dockerfile .
+docker run --rm -it --name php_running php-app
+
+docker build -t apache-app -f apache_dockerfile .
+docker run --rm -dit \
+    -p 8080:80 \
+    -v $(pwd)/src/apache/public-html:/usr/local/apache2/htdocs/ \
+    --name apache_running apache-app
+
+docker build -t mysql-app -f mysql_dockerfile .
+docker run --rm -d \
+    --net net1 \
+    --name mysql_running mysql-app
+# create another instance to use the cli
+docker build -t mysql-cli-app -f mysql_dockerfile .
+docker run --rm -it \
+    --net net1 \
+    --name mysql_cli_running mysql-cli-app \
+    mysql -hmysql_running -uuser -p
+
+docker exec -it apache_running bash
+
+docker network create net1
+docker run --rm httpd:2.4 cat /usr/local/apache2/conf/httpd.conf > my-httpd.conf
+docker run --rm httpd:2.4 cat /usr/local/apache2/htdocs/index.html > index.html
