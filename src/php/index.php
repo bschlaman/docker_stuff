@@ -1,3 +1,2 @@
-<?PHP
-echo "FROM index.php!!!\n";
-?>
+<?php
+echo phpinfo();
