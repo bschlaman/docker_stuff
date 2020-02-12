@@ -1,6 +1,7 @@
-FROM php
+FROM php:7.2.7-fpm-alpine3.7
 RUN mkdir /usr/src/myapp
 COPY $PWD/src/php/index.php /usr/src/myapp/
+COPY $PWD/src/php/index.php /var/www/html/
 WORKDIR /usr/src/myapp
 #CMD [ "php", "./index.php" ]
 #CMD [ "bash" ]

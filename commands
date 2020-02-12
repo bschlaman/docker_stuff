@@ -3,6 +3,10 @@ docker run --rm -dit \
     --net net1 \
     --name php_running php-app
 
+# Apache will use /var/www/html/ as default folder
+# and /var/www/html/index.php as default index
+# Since it's a php request, it will be sent to php_running
+# Need to check the minimal requirement for the php image
 docker build -t apache-app -f apache_dockerfile .
 docker run --rm -dit \
     -p 8080:80 \
