@@ -32,3 +32,10 @@ docker network create net1
 docker run --rm httpd cat /usr/local/apache2/conf/httpd.conf > my-httpd.conf
 docker run --rm httpd cat /usr/local/apache2/htdocs/index.html > index.html
 docker run --rm -it busybox
+
+# jenkins
+docker run \
+    -p 8080:8080 -p 50000:50000 \
+    -v $(pwd)/src/jenkins:/var/jenkins_home \
+    --name jenkins_running \
+    jenkins/jenkins
