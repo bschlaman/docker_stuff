@@ -1,7 +1,6 @@
 FROM php:fpm-alpine
-RUN mkdir /usr/src/myapp
-COPY $PWD/src/php/index.php /usr/src/myapp/
-COPY $PWD/src/php/index.php /var/www/html/
-WORKDIR /usr/src/myapp
+#RUN mkdir /usr/src/myapp
+#COPY $PWD/src/php/index.php /usr/src/myapp/
+#WORKDIR /usr/src/myapp
 #CMD [ "php", "./index.php" ]
 #CMD [ "bash" ]

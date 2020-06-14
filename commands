@@ -1,5 +1,6 @@
 docker build -t php-app -f php_dockerfile .
 docker run --rm -dit \
+    -v $(pwd)/src/php:/var/www/html/ \
     --net net1 \
     --name php_running php-app
 
