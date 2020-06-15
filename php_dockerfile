@@ -4,3 +4,4 @@ FROM php:fpm-alpine
 #WORKDIR /usr/src/myapp
 #CMD [ "php", "./index.php" ]
 #CMD [ "bash" ]
+CMD [ "chown -R www-data:www-data /var/www/html/" ]
