@@ -40,3 +40,7 @@ docker run \
     -v $(pwd)/src/jenkins:/var/jenkins_home \
     --name jenkins_running \
     jenkins/jenkins
+
+# youtube-dl
+ docker build -t ytdl-app -f ytdl_dockerfile .
+ docker run --rm -it --name ytdl_running ytdl-app
