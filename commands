@@ -21,10 +21,8 @@ docker run --rm -d \
     --net net1 \
     --name mysql_running mysql-app
 # create another instance to use the cli
-docker build -t mysql-cli-app -f mysql_dockerfile .
 docker run --rm -it \
-    --net net1 \
-    --name mysql_cli_running mysql-cli-app \
+    --net net1 mysql \
     mysql -hmysql_running -uuser -p
 
 docker exec -it apache_running bash
