@@ -1,6 +1,0 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND="noninteractive"
-RUN apt-get update
-RUN apt-get install -y youtube-dl
-RUN alias yta='youtube-dl -x --audio-format mp3'
-CMD ["bash"]
